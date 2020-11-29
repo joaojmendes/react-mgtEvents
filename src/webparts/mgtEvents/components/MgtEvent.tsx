@@ -17,6 +17,7 @@ import {
 } from "office-ui-fabric-react";
 
 import { MgtTemplateProps } from "@microsoft/mgt-react";
+import { Event as IEvent } from "@microsoft/microsoft-graph-types";
 
 import { currentSiteTheme } from "../../../common/constants";
 import { MgtPersons } from "./MgtPersons";
@@ -29,7 +30,8 @@ const tileStyle: IDocumentCardStyles = {
 };
 
 export const Event = (props: MgtTemplateProps) => {
-  const { event } = props.dataContext;
+  const  event:IEvent   = props.dataContext.event;
+
 
   const componentClasses = mergeStyleSets({
     eventDay: mergeStyles({
@@ -59,12 +61,12 @@ export const Event = (props: MgtTemplateProps) => {
           .css("grid-gap", "1rem");
       }
     })();
-  }, []);
+  }, [props]);
 
   // Render component
   return (
     <>
-      <DocumentCard styles={tileStyle} onClickHref={"#"}>
+      <DocumentCard styles={tileStyle}  data-interception="false" onClickTarget="_blank" onClickHref={event.webLink}>
         <Stack
           horizontal
           horizontalAlign="start"

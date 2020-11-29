@@ -12,6 +12,8 @@ export const MgtEvents: React.FunctionComponent<IMgtEventsProps> = (
   props: React.PropsWithChildren<IMgtEventsProps>
 ) => {
 
+
+
   return (
     <>
           <Text variant="xLarge">{props.title}</Text>

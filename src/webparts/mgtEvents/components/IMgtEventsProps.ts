@@ -5,5 +5,5 @@ export interface IMgtEventsProps {
   title:string;
   themeVariant: IReadonlyTheme;
   serviceScope: ServiceScope;
-  numberDays: number | 8;
+  numberDays: number;
 }

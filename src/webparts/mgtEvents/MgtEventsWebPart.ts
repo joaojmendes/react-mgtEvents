@@ -72,6 +72,10 @@ export default class MgtEventsWebPart extends BaseClientSideWebPart<IMgtEventsWe
     this.render();
   }
 
+
+  protected get disableReactivePropertyChanges():boolean {
+    return true;
+  }
   // Apply btheme id in Teams
   private _applyTheme = (theme: string): void => {
     this.context.domElement.setAttribute("data-theme", theme);
